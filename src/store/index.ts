@@ -1,8 +1,10 @@
 import { configureStore } from "@reduxjs/toolkit";
-import userInfoStore from "./modules/userInfoStore";
+import tokenReducer from "./modules/tokenStore";
+import userinfoReducer from "./modules/userInfoStore";
 const store = configureStore({
   reducer: {
-    userInfo: userInfoStore,
+    userInfo: userinfoReducer,
+    token: tokenReducer,
   },
 });
 

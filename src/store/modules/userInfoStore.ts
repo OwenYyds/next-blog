@@ -50,7 +50,7 @@ const fetchUserInfo = () => async (dispatch: AppDispatch) => {
   dispatch(setUserInfo(data));
 };
 
-const reducers = userInfoStore.reducer;
+const userinfoReducer = userInfoStore.reducer;
 
 export { setUserInfo, fetchUserInfo };
-export default reducers;
+export default userinfoReducer;
