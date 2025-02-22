@@ -1,5 +1,6 @@
 import { createSlice } from "@reduxjs/toolkit";
 import { AppDispatch } from "..";
+import { request } from "@/services";
 
 interface Address {
   street: string;
@@ -44,7 +45,7 @@ const userInfoStore = createSlice({
 const { setUserInfo } = userInfoStore.actions;
 
 const fetchUserInfo = () => async (dispatch: AppDispatch) => {
-  const response = await fetch("http://localhost:9876/0");
+  const response = await request("/0");
   const data: UserInfo = await response.json();
   dispatch(setUserInfo(data));
 };
