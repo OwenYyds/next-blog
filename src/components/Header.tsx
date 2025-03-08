@@ -14,13 +14,14 @@ export default function Header() {
   return (
     <Navbar fluid rounded>
       <Navbar.Brand as={Link} href="#">
-        <Image
-          width={30}
-          height={20}
-          src={brand}
-          className="mr-3 h-6 sm:h-9"
-          alt="Flowbite React Logo"
-        />
+        <div className="relative w-10 h-auto">
+          <Image
+            src={brand}
+            alt="blog Logo"
+            priority
+            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+          />
+        </div>
         <span className="self-center whitespace-nowrap text-xl font-semibold dark:text-white">
           Owen&apos;s Blog
         </span>
