@@ -3,6 +3,7 @@ import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import { Providers } from "@/store/Providers";
 import ErrorBoundary from "@/utils/ErrorBoundary";
+import { ThemeModeScript } from "flowbite-react";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -25,7 +26,10 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="en" suppressHydrationWarning>
+      <head>
+        <ThemeModeScript />
+      </head>
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
