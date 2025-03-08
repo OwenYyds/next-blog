@@ -3,7 +3,7 @@
 import { Avatar, DarkThemeToggle, Dropdown, Navbar } from "flowbite-react";
 import Image from "next/image";
 import Link from "next/link";
-import brand from "../assets/blogging.png";
+import brand from "@assets/blogging.png";
 
 export default function Header() {
   return (
