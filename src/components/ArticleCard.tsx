@@ -12,11 +12,9 @@ export function ArticleCard() {
       renderImage={() => (
         <Image
           src={bg}
-          width={500}
-          height={200}
-          // layout="fill"
-          objectFit="cover"
           alt="image 1"
+          priority
+          sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
         />
       )}
     >
