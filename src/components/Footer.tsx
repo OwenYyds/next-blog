@@ -16,7 +16,7 @@ const socialLinks = [
 
 export default function Footer() {
   return (
-    <>
+    <div className="mt-20">
       <hr />
       <footer className="max-w-[1200px] mx-auto px-4">
         <div className="mt-12 flex sm:justify-between justify-center items-center gap-10 max-sm:flex-col">
@@ -40,6 +40,6 @@ export default function Footer() {
           </ul>
         </div>
       </footer>
-    </>
+    </div>
   );
 }
