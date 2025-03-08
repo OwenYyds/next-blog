@@ -1,4 +1,4 @@
-import { Dropdown, Avatar, Navbar } from "flowbite-react";
+import { Dropdown, Avatar } from "flowbite-react";
 import React from "react";
 
 export default function UserAvatar() {
@@ -27,8 +27,6 @@ export default function UserAvatar() {
         <Dropdown.Divider />
         <Dropdown.Item>Sign out</Dropdown.Item>
       </Dropdown>
-
-      <Navbar.Toggle />
     </div>
   );
 }

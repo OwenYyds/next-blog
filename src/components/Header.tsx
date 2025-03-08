@@ -36,6 +36,7 @@ export default function Header() {
         <Navbar.Link href="#">Contact</Navbar.Link>
       </Navbar.Collapse>
       <DarkThemeToggle />
+      <Navbar.Toggle />
     </Navbar>
   );
 }
