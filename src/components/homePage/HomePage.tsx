@@ -10,7 +10,7 @@ export default function HomePage() {
         <div className="block">My blog is under construction</div>
       </div>
 
-      <div className="p-5 mx-auto max-w-screen-lg">
+      <div className="mx-auto max-w-screen-lg">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
           <ArticleCard />
           <ArticleCard />
