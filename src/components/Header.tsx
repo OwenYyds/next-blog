@@ -6,6 +6,8 @@ import Link from "next/link";
 import brand from "@assets/blogging.png";
 import UserAvatar from "./user/UserAvatar";
 import { useUserInfo } from "@/hooks";
+import Button from "./Button";
+import { GiNotebook } from "react-icons/gi";
 
 export default function Header() {
   const { isUserLoggedIn } = useUserInfo();
@@ -35,6 +37,7 @@ export default function Header() {
         <Navbar.Link href="#">Me</Navbar.Link>
         <Navbar.Link href="#">Contact</Navbar.Link>
       </Navbar.Collapse>
+      <Button name="Write" icon={<GiNotebook />} duoTone="purpleToBlue" />
       <DarkThemeToggle />
       <Navbar.Toggle />
     </Navbar>
