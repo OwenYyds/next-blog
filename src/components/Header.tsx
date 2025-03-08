@@ -1,11 +1,14 @@
 "use client";
 
-import { Avatar, DarkThemeToggle, Dropdown, Navbar } from "flowbite-react";
+import { DarkThemeToggle, Navbar } from "flowbite-react";
 import Image from "next/image";
 import Link from "next/link";
 import brand from "@assets/blogging.png";
+import UserAvatar from "./user/UserAvatar";
+import { useUserInfo } from "@/hooks";
 
 export default function Header() {
+  const { isUserLoggedIn } = useUserInfo();
   return (
     <Navbar fluid rounded>
       <Navbar.Brand as={Link} href="#">
@@ -20,33 +23,7 @@ export default function Header() {
           Owen&apos;s Blog
         </span>
       </Navbar.Brand>
-      <div className="flex md:order-2">
-        <Dropdown
-          arrowIcon={false}
-          inline
-          label={
-            <Avatar
-              alt="User settings"
-              img="https://th.bing.com/th/id/OIP.pIP4EcpGMqaai1bhFaWgCQHaLH?rs=1&pid=ImgDetMain"
-              rounded
-            />
-          }
-        >
-          <Dropdown.Header>
-            <span className="block text-sm">Owen yang</span>
-            <span className="block truncate text-sm font-medium">
-              youngwhenball@gmail.com
-            </span>
-          </Dropdown.Header>
-          <Dropdown.Item>Dashboard</Dropdown.Item>
-          <Dropdown.Item>Settings</Dropdown.Item>
-          <Dropdown.Item>Earnings</Dropdown.Item>
-          <Dropdown.Divider />
-          <Dropdown.Item>Sign out</Dropdown.Item>
-        </Dropdown>
-        <DarkThemeToggle />
-        <Navbar.Toggle />
-      </div>
+      {isUserLoggedIn && <UserAvatar />}
       <Navbar.Collapse>
         <Navbar.Link href="#" active>
           Home
@@ -58,6 +35,7 @@ export default function Header() {
         <Navbar.Link href="#">Me</Navbar.Link>
         <Navbar.Link href="#">Contact</Navbar.Link>
       </Navbar.Collapse>
+      <DarkThemeToggle />
     </Navbar>
   );
 }
