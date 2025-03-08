@@ -4,6 +4,7 @@ import "./globals.css";
 import { Providers } from "@/store/Providers";
 import ErrorBoundary from "@/utils/ErrorBoundary";
 import { ThemeModeScript } from "flowbite-react";
+import Header from "@/components/Header";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -35,6 +36,8 @@ export default function RootLayout({
       >
         <Providers>
           <ErrorBoundary fallback={"something went wrong"}>
+            <Header />
+
             {children}
           </ErrorBoundary>
         </Providers>
