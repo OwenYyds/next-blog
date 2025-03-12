@@ -1,42 +1,42 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 
-import { getToken } from "./token";
+import { getToken } from './token'
 
-const baseURL = "http://localhost:9876";
-const timeout = 1000;
+const baseURL = 'http://localhost:9876'
+const timeout = 1000
 
 const request = async (url: string, options: any = {}) => {
-  const controller = new AbortController();
-  const id = setTimeout(() => controller.abort(), timeout);
-  options.signal = controller.signal;
+  const controller = new AbortController()
+  const id = setTimeout(() => controller.abort(), timeout)
+  options.signal = controller.signal
 
-  options = requestInterceptor(options);
+  options = requestInterceptor(options)
 
   try {
-    const response = await fetch(baseURL + url, options);
-    clearTimeout(id);
+    const response = await fetch(baseURL + url, options)
+    clearTimeout(id)
 
     // Response interceptor
-    return responseInterceptor(response);
+    return responseInterceptor(response)
   } catch (error) {
-    clearTimeout(id);
-    return Promise.reject(error);
+    clearTimeout(id)
+    return Promise.reject(error)
   }
-};
+}
 
 const requestInterceptor = (config: any) => {
-  const token = getToken();
+  const token = getToken()
   if (token) {
     config.headers = {
       ...config.headers,
       Authorization: `Bearer ${token}`,
-    };
+    }
   }
-  return config;
-};
+  return config
+}
 
 const responseInterceptor = async (response: Response) => {
-  return response;
-};
+  return response
+}
 
-export { request };
+export { request }

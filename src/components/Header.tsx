@@ -1,16 +1,25 @@
-"use client";
+'use client'
 
-import { DarkThemeToggle, Navbar } from "flowbite-react";
-import Image from "next/image";
-import Link from "next/link";
-import brand from "@assets/blogging.png";
-import UserAvatar from "./user/UserAvatar";
-import { useUserInfo } from "@/hooks";
-import Button from "./Button";
-import { GiNotebook } from "react-icons/gi";
+import { DarkThemeToggle, Navbar } from 'flowbite-react'
+import Image from 'next/image'
+import Link from 'next/link'
+import brand from '@assets/blogging.png'
+import UserAvatar from './user/UserAvatar'
+import { useUserInfo } from '@/hooks'
+import Button from './Button'
+import { GiNotebook } from 'react-icons/gi'
+import { usePathname } from 'next/navigation'
+
+const navLinks = [
+  { id: 1, name: 'Home', path: '/' },
+  { id: 2, name: 'Blog', path: '/blog/list' },
+  { id: 3, name: 'About', path: '/about' },
+]
 
 export default function Header() {
-  const { isUserLoggedIn } = useUserInfo();
+  const { isUserLoggedIn } = useUserInfo()
+  const pathname = usePathname()
+
   return (
     <>
       <Navbar
@@ -26,15 +35,15 @@ export default function Header() {
         </Navbar.Brand>
         {isUserLoggedIn && <UserAvatar />}
         <Navbar.Collapse>
-          <Navbar.Link href="#" active>
-            Home
-          </Navbar.Link>
-          <Navbar.Link as={Link} href="#">
-            Blog
-          </Navbar.Link>
-          <Navbar.Link href="#">Game</Navbar.Link>
-          <Navbar.Link href="#">Me</Navbar.Link>
-          <Navbar.Link href="#">Contact</Navbar.Link>
+          {navLinks.map((link) => (
+            <Navbar.Link
+              key={link.id}
+              href={link.path}
+              active={pathname === link.path}
+            >
+              {link.name}
+            </Navbar.Link>
+          ))}
         </Navbar.Collapse>
         <Button name="Write" icon={<GiNotebook />} duoTone="purpleToBlue" />
         <DarkThemeToggle />
@@ -42,7 +51,7 @@ export default function Header() {
       </Navbar>
 
       {/* to make sure there's no blank space above nav */}
-      <div className="h-5 md:h-10 lg:h-12"></div>
+      <div className="h-5 md:h-10 lg:h-12 mb-5"></div>
     </>
-  );
+  )
 }

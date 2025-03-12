@@ -1,5 +1,5 @@
-import { Dropdown, Avatar } from "flowbite-react";
-import React from "react";
+import { Dropdown, Avatar } from 'flowbite-react'
+import React from 'react'
 
 export default function UserAvatar() {
   return (
@@ -28,5 +28,5 @@ export default function UserAvatar() {
         <Dropdown.Item>Sign out</Dropdown.Item>
       </Dropdown>
     </div>
-  );
+  )
 }

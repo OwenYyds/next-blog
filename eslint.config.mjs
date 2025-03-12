@@ -11,6 +11,14 @@ const compat = new FlatCompat({
 
 const eslintConfig = [
   ...compat.extends("next/core-web-vitals", "next/typescript"),
+  {
+    rules: {
+      // 禁用强制使用分号
+      semi: ["error", "never"],
+      // 如果需要在导入语句后强制不使用分号
+      "import/no-duplicates": ["error", { considerQueryString: true }],
+    },
+  },
 ];
 
 export default eslintConfig;
