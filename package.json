@@ -7,7 +7,8 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "json-server": "json-server --watch src/mock/data.json --port 9876"
+    "json-server": "json-server --watch src/mock/data.json --port 9876",
+    "format": "prettier --write \"src/**/*.{js,jsx,ts,tsx}\""
   },
   "dependencies": {
     "@next/bundle-analyzer": "^15.2.1",
