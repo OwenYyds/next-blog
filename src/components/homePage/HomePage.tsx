@@ -1,11 +1,11 @@
 'use client'
-import React from 'react'
+import React, { useEffect } from 'react'
 import ArticleCard from '../blog/ArticleCard'
 
 export default function HomePage() {
   return (
     <>
-      <div className="my-5 py-3 h-screen flex flex-col justify-center items-center text-center">
+      <div className="mb-5 py-3 h-screen flex flex-col justify-center items-center text-center">
         <div className="block text-5xl font-bold">Hello , i am Owen</div>
         <div className="block text-3xl font-semibold">Welcome to my blog</div>
         <div className="block">My blog is under construction</div>

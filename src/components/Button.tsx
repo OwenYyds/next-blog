@@ -3,6 +3,7 @@ import React from 'react'
 import { Button as FlowbiteButton } from 'flowbite-react'
 
 interface ButtonProps {
+  className?: string
   name: string
   icon?: React.ReactNode
   duoTone?:
@@ -16,10 +17,13 @@ interface ButtonProps {
 }
 
 export default function Button(props: ButtonProps) {
-  const { name, icon, duoTone } = props
+  const { name, icon, duoTone, className } = props
 
   return (
-    <FlowbiteButton gradientDuoTone={duoTone || 'purpleToBlue'}>
+    <FlowbiteButton
+      className={className}
+      gradientDuoTone={duoTone || 'purpleToBlue'}
+    >
       {icon}
       {name}
     </FlowbiteButton>

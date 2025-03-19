@@ -9,6 +9,7 @@ import { useUserInfo } from '@/hooks'
 import Button from './Button'
 import { GiNotebook } from 'react-icons/gi'
 import { usePathname } from 'next/navigation'
+import IsHeaderShow from './IsHeaderShow'
 
 const navLinks = [
   { id: 1, name: 'Home', path: '/' },
@@ -20,14 +21,19 @@ export default function Header() {
   const { isUserLoggedIn } = useUserInfo()
   const pathname = usePathname()
 
+  const { navRef, showNav } = IsHeaderShow()
+
   return (
     <>
       <Navbar
+        ref={navRef}
         fluid
         rounded
-        className="fixed w-full bg-opacity-20 backdrop-blur-md z-50"
+        className={`w-full bg-opacity-35 backdrop-blur-md z-50 
+          transition-all duration-1000 ease-in-out 
+          ${showNav ? 'fixed translate-y-0' : 'translate-y-full'}`}
       >
-        <Navbar.Brand as={Link} href="#">
+        <Navbar.Brand as={Link} href="/">
           <Image src={brand} alt="blog Logo" width={50} height={50} />
           <span className="self-center whitespace-nowrap text-xl font-semibold dark:text-white">
             Owen&apos;s Blog
@@ -45,13 +51,16 @@ export default function Header() {
             </Navbar.Link>
           ))}
         </Navbar.Collapse>
-        <Button name="Write" icon={<GiNotebook />} duoTone="purpleToBlue" />
+        <Button
+          className="hidden"
+          name="Write"
+          icon={<GiNotebook />}
+          duoTone="purpleToBlue"
+        />
+        <Button name="Login" duoTone="tealToLime" />
         <DarkThemeToggle />
         <Navbar.Toggle />
       </Navbar>
-
-      {/* to make sure there's no blank space above nav */}
-      <div className="h-5 md:h-10 lg:h-12 mb-5"></div>
     </>
   )
 }
