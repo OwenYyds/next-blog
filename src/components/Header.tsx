@@ -29,9 +29,9 @@ export default function Header() {
         ref={navRef}
         fluid
         rounded
-        className={`w-full bg-opacity-35 backdrop-blur-md z-50 
+        className={`w-full mb-5 bg-opacity-35 backdrop-blur-md z-50 
           transition-all duration-1000 ease-in-out 
-          ${showNav ? 'fixed translate-y-0' : 'translate-y-full'}`}
+          ${showNav ? 'translate-y-0' : 'translate-y-full'}`}
       >
         <Navbar.Brand as={Link} href="/">
           <Image src={brand} alt="blog Logo" width={50} height={50} />
