@@ -1,12 +1,19 @@
-import type { NextConfig } from "next";
-import withBundleAnalyzer from "@next/bundle-analyzer";
+import type { NextConfig } from 'next'
+import withBundleAnalyzer from '@next/bundle-analyzer'
 
 const bundleAnalyzer = withBundleAnalyzer({
-  enabled: process.env.ANALYZE === "true",
-});
+  enabled: process.env.ANALYZE === 'true',
+})
 
 const nextConfig: NextConfig = bundleAnalyzer({
-  /* config options here */
-});
+  async rewrites() {
+    return [
+      {
+        source: '/api/:path*',
+        destination: 'http://localhost:8088/:path*',
+      },
+    ]
+  },
+})
 
-export default nextConfig;
+export default nextConfig
