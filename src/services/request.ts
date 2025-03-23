@@ -75,7 +75,7 @@ export const createApi = <T>(
     cancelTokens[config.cancelKey] = source
   }
 
-  return request<ApiResponse<T>>(method, url, data, config)
+  return request<T>(method, url, data, config)
 }
 
 export default request

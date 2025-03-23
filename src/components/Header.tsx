@@ -24,43 +24,41 @@ export default function Header() {
   const { navRef, showNav } = IsHeaderShow()
 
   return (
-    <>
-      <Navbar
-        ref={navRef}
-        fluid
-        rounded
-        className={`w-full mb-5 bg-opacity-35 backdrop-blur-md z-50 
+    <Navbar
+      ref={navRef}
+      fluid
+      rounded
+      className={`w-full mb-5 bg-opacity-35 backdrop-blur-md z-50 
           transition-all duration-1000 ease-in-out 
           ${showNav ? 'translate-y-0' : 'translate-y-full'}`}
-      >
-        <Navbar.Brand as={Link} href="/">
-          <Image src={brand} alt="blog Logo" width={50} height={50} />
-          <span className="self-center whitespace-nowrap text-xl font-semibold dark:text-white">
-            Owen&apos;s Blog
-          </span>
-        </Navbar.Brand>
-        {isUserLoggedIn && <UserAvatar />}
-        <Navbar.Collapse>
-          {navLinks.map((link) => (
-            <Navbar.Link
-              key={link.id}
-              href={link.path}
-              active={pathname === link.path}
-            >
-              {link.name}
-            </Navbar.Link>
-          ))}
-        </Navbar.Collapse>
-        <Button
-          className="hidden"
-          name="Write"
-          icon={<GiNotebook />}
-          duoTone="purpleToBlue"
-        />
-        <Button name="Login" duoTone="tealToLime" />
-        <DarkThemeToggle />
-        <Navbar.Toggle />
-      </Navbar>
-    </>
+    >
+      <Navbar.Brand as={Link} href="/">
+        <Image src={brand} alt="blog Logo" width={50} height={50} />
+        <span className="self-center whitespace-nowrap text-xl font-semibold dark:text-white">
+          Owen&apos;s Blog
+        </span>
+      </Navbar.Brand>
+      {isUserLoggedIn && <UserAvatar />}
+      <Navbar.Collapse>
+        {navLinks.map((link) => (
+          <Navbar.Link
+            key={link.id}
+            href={link.path}
+            active={pathname === link.path}
+          >
+            {link.name}
+          </Navbar.Link>
+        ))}
+      </Navbar.Collapse>
+      <Button
+        className="hidden"
+        name="Write"
+        icon={<GiNotebook />}
+        duoTone="purpleToBlue"
+      />
+      <Button name="Login" duoTone="tealToLime" />
+      <DarkThemeToggle />
+      <Navbar.Toggle />
+    </Navbar>
   )
 }
